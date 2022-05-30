@@ -1,5 +1,6 @@
 package com.bridgelabz.SpringHelloApp.controller;
 
+import com.bridgelabz.SpringHelloApp.Model.User;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -46,6 +47,19 @@ public class HelloController {
         return "Hello "+ name +" from bridgelabz";
     }
 
+    // UC4
+//    Make REST Call to show Hello Mark
+//     Taylor from BridgeLabz
+//     Use POST Request Method and pass first name and
+//     last name in the Body
+//      Create User DTO Bean with firstName and lastName as
+//     attributes.
+//     *Use CURL to demonstrate the REST API Call
+
+    @PostMapping (value = {"/create-user","/post"})
+    public String sayHello(@RequestBody User user){
+        return "Hello "+user.getFirstName() + " " +user.getLastName() +" !";
+    }
 
     }
 
